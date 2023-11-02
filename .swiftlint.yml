@@ -8,3 +8,11 @@ excluded:
 disabled_rules:
   - line_length
   - trailing_comma
+
+custom_rules:
+  image_name_initialization: # Disable UIImage init from name
+    included: ".*.swift"
+    name: "Image initialization"
+    regex: 'UIImage\(named:[^)]+\)'
+    message: "Use R.image.name() or typealias of this instead"
+    severity: error
