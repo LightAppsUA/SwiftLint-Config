@@ -1,10 +1,9 @@
 included:
 
 excluded:
-  - AppConstants.swift
-  - AppConstants-Obfuscated.swift
-  - _obfuscated
-  - R.generated.swift
+  - "_obfuscated"
+  - "**/*-Obfuscated.swift"
+  - "**/*.generated.swift"
 
 disabled_rules:
   - line_length
