@@ -1,0 +1,11 @@
+included:
+
+excluded:
+  - AppConstants.swift
+  - AppConstants-Obfuscated.swift
+  - _obfuscated
+  - R.generated.swift
+
+disabled_rules:
+  - line_length
+  - trailing_comma
