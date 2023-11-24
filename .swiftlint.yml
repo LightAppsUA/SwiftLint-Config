@@ -20,3 +20,7 @@ custom_rules:
     match_kinds:
       - identifier
       - string
+
+identifier_name:
+  min_length:
+    warning: 2
