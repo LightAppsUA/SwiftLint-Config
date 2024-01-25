@@ -17,7 +17,7 @@ custom_rules:
     included: ".*.swift"
     name: "Image initialization"
     regex: 'UIImage\(named:[^)]+\)'
-    message: "Use R.image.name() or typealias of this instead"
+    message: "Use R.image.name() or typealias of this instead."
     severity: error
     match_kinds:
       - identifier
@@ -37,7 +37,7 @@ custom_rules:
     included: ".*.swift"
     name: "Debug flags"
     regex: "let\\s+force(Premium|OfflinePaywall|OfflineSlides)\\s*=\\s*true"
-    message: ""
+    message: "Force flags must be disabled after testing."
     severity: warning
     match_kinds:
       - identifier
