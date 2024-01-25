@@ -9,6 +9,8 @@ disabled_rules:
   - line_length
   - trailing_whitespace
   - trailing_comma
+  - cyclomatic_complexity
+  - function_body_length
 
 custom_rules:
   image_name_initialization: # Disable UIImage init from name
