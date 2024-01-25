@@ -21,6 +21,16 @@ custom_rules:
       - identifier
       - string
 
+  sf_safe_symbol:
+    included: ".*.swift"
+    name: "Safe SFSymbol"
+    message: "Use `SFSafeSymbols` via `systemSymbol` parameters for type safety."
+    regex: "(Image\\(systemName:)|(NSImage\\(symbolName:)|(Label[^,]+?,\\s*systemImage:)|(UIApplicationShortcutIcon\\(systemImageName:)"
+    severity: warning
+    match_kinds:
+      - identifier
+      - string
+
 identifier_name:
   min_length:
     warning: 2
