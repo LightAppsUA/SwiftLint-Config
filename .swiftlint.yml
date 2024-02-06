@@ -43,6 +43,26 @@ custom_rules:
       - identifier
       - keyword
 
+  cancle_misspelling:
+    included: ".*.swift"
+    name: "Misspelled 'cancle'"
+    regex: '(?i)\bcancle\b'
+    message: "Did you mean 'cancel'?"
+    severity: warning
+    match_kinds:
+      - identifier
+      - string
+
+  acces_misspelling:
+    included: ".*.swift"
+    name: "Misspelled 'acces'"
+    regex: '(?i)\bacces\b'
+    message: "Did you mean 'access'?"
+    severity: warning
+    match_kinds:
+      - identifier
+      - string
+
 identifier_name:
   min_length:
     warning: 2
