@@ -1,8 +1,6 @@
 included:
 
 excluded:
-  - "_obfuscated"
-  - "**/*-Obfuscated.swift"
   - "**/*.generated.swift"
 
 disabled_rules:
@@ -13,10 +11,20 @@ disabled_rules:
   - function_body_length
 
 custom_rules:
-  image_name_initialization: # Disable UIImage init from name
+  lottie_animation_initialization:
+    included: ".*.swift"
+    name: "Lottie animation initialization"
+    regex: r'(?:LottieAnimationView\(name:|LottieAnimation\.named\()\s*\".*?\"\s*\)'
+    message: "Use R.file.filename.name or typealias of this instead."
+    severity: error
+    match_kinds:
+      - identifier
+      - string
+
+  image_name_initialization:
     included: ".*.swift"
     name: "Image initialization"
-    regex: 'UIImage\(named:[^)]+\)'
+    regex: r'UIImage\(named:\s*\".*?\"\s*\)'
     message: "Use R.image.name() or typealias of this instead."
     severity: error
     match_kinds:
@@ -27,16 +35,16 @@ custom_rules:
     included: ".*.swift"
     name: "Safe SFSymbol"
     message: "Use `SFSafeSymbols` via `systemSymbol` parameters for type safety."
-    regex: "(Image\\(systemName:)|(NSImage\\(symbolName:)|(Label[^,]+?,\\s*systemImage:)|(UIApplicationShortcutIcon\\(systemImageName:)"
+    regex: r"(Image\(systemName:)|(NSImage\(symbolName:)|(Label[^,]+?,\s*systemImage:)|(UIApplicationShortcutIcon\(systemImageName:)"
     severity: warning
     match_kinds:
       - identifier
       - string
-      
+
   force_flags:
     included: ".*.swift"
     name: "Debug flags"
-    regex: "let\\s+force(Premium|OfflinePaywall|OfflineSlides)\\s*=\\s*true"
+    regex: r"let\s+force(?:Premium|OfflinePaywall|OfflineSlides)\s*=\s*true"
     message: "Force flags must be disabled after testing."
     severity: warning
     match_kinds:
@@ -46,7 +54,7 @@ custom_rules:
   cancle_misspelling:
     included: ".*.swift"
     name: "Misspelled 'cancle'"
-    regex: '(?i)\bcancle\b'
+    regex: r'(?i)\bcancle\b'
     message: "Did you mean 'cancel'?"
     severity: warning
     match_kinds:
@@ -56,7 +64,7 @@ custom_rules:
   acces_misspelling:
     included: ".*.swift"
     name: "Misspelled 'acces'"
-    regex: '(?i)\bacces\b'
+    regex: r'(?i)\bacces\b'
     message: "Did you mean 'access'?"
     severity: warning
     match_kinds:
