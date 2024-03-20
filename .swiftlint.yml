@@ -14,7 +14,7 @@ custom_rules:
   lottie_animation_initialization:
     included: ".*.swift"
     name: "Lottie animation initialization"
-    regex: r'(?:LottieAnimationView\(name:|LottieAnimation\.named\()\s*\".*?\"\s*\)'
+    regex: '(LottieAnimationView\(name:|LottieAnimation\.named\()\s*".*?"\s*\)'
     message: "Use R.file.filename.name or typealias of this instead."
     severity: error
     match_kinds:
@@ -24,7 +24,7 @@ custom_rules:
   image_name_initialization:
     included: ".*.swift"
     name: "Image initialization"
-    regex: r'UIImage\(named:\s*\".*?\"\s*\)'
+    regex: 'UIImage\(named:\s*".*?"\s*\)'
     message: "Use R.image.name() or typealias of this instead."
     severity: error
     match_kinds:
@@ -35,7 +35,7 @@ custom_rules:
     included: ".*.swift"
     name: "Safe SFSymbol"
     message: "Use `SFSafeSymbols` via `systemSymbol` parameters for type safety."
-    regex: r"(Image\(systemName:)|(NSImage\(symbolName:)|(Label[^,]+?,\s*systemImage:)|(UIApplicationShortcutIcon\(systemImageName:)"
+    regex: '(Image\(systemName:)|(NSImage\(symbolName:)|(Label[^,]+?,\s*systemImage:)|(UIApplicationShortcutIcon\(systemImageName:)'
     severity: warning
     match_kinds:
       - identifier
@@ -44,7 +44,7 @@ custom_rules:
   force_flags:
     included: ".*.swift"
     name: "Debug flags"
-    regex: r"let\s+force(?:Premium|OfflinePaywall|OfflineSlides)\s*=\s*true"
+    regex: 'let\s+force(?:Premium|OfflinePaywall|OfflineSlides)\s*=\s*true'
     message: "Force flags must be disabled after testing."
     severity: warning
     match_kinds:
@@ -54,7 +54,7 @@ custom_rules:
   cancle_misspelling:
     included: ".*.swift"
     name: "Misspelled 'cancle'"
-    regex: r'(?i)\bcancle\b'
+    regex: '(?i)\bcancle\b'
     message: "Did you mean 'cancel'?"
     severity: warning
     match_kinds:
@@ -64,7 +64,7 @@ custom_rules:
   acces_misspelling:
     included: ".*.swift"
     name: "Misspelled 'acces'"
-    regex: r'(?i)\bacces\b'
+    regex: '(?i)\bacces\b'
     message: "Did you mean 'access'?"
     severity: warning
     match_kinds:
