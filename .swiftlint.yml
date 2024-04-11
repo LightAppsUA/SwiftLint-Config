@@ -24,7 +24,7 @@ custom_rules:
   image_name_initialization:
     included: ".*.swift"
     name: "Image initialization"
-    regex: 'UIImage\(named:\s*".*?"\s*\)'
+    regex: '(UIImage\(named:\s*".*?"\s*\)|Image\(\s*".*?"\s*\))'
     message: "Use R.image.name() or typealias of this instead."
     severity: error
     match_kinds:
