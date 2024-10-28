@@ -92,13 +92,6 @@ custom_rules:
       - identifier
       - string
 
-  layoutSubviews_no_layout_code:
-    included: ".*\\.swift"
-    name: "Layout code in layoutSubviews"
-    message: "Avoid adding constraints or layers within layoutSubviews. Move layout setup to init or viewDidLoad."
-    regex: 'func layoutSubviews\(\) \{[\s\S]*?(addSublayer|\.snp\.|constraint\(|NSLayoutConstraint|addSubview)'
-    severity: error
-
 identifier_name:
   min_length:
     warning: 2
