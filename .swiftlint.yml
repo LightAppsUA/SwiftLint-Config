@@ -2,6 +2,7 @@ included:
 
 excluded:
   - "**/*.generated.swift"
+  - Pods
 
 disabled_rules:
   - line_length
