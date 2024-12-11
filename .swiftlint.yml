@@ -63,6 +63,18 @@ custom_rules:
       - identifier
       - string
 
+  nsfetchrequest_rule:
+    name: "NSFetchRequest Usage Rule"
+    message: "Avoid hardcoding entity names in NSFetchRequest."
+    regex: 'NSFetchRequest<.*?>\(entityName:\s*".*?"\)'
+    severity: warning
+
+  nsentitydescription_rule:
+    name: "NSEntityDescription Usage Rule"
+    message: "Avoid hardcoding entity names in NSEntityDescription."
+    regex: 'NSEntityDescription\.entity\(forEntityName:\s*".*?",'
+    severity: warning
+
   force_flags:
     included: ".*\\.swift"
     name: "Debug flags"
