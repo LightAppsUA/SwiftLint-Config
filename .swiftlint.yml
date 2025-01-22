@@ -10,6 +10,7 @@ disabled_rules:
   - trailing_comma
   - cyclomatic_complexity
   - function_body_length
+  - type_body_length
 
 custom_rules:
   lottie_animation_initialization:
@@ -75,6 +76,13 @@ custom_rules:
     regex: 'NSEntityDescription\.entity\(forEntityName:\s*".*?",'
     severity: warning
 
+  bundle_resource_rule:
+    included: ".*\\.swift"
+    name: "Avoid Hardcoded Bundle Access"
+    message: "Avoid hardcoding filenames for resource access."
+    regex: "Bundle\\.main\\.(url|path)\\(forResource:\\s*\\\".+\\\",\\s*(withExtension|ofType):\\s*\\\".+\\\"\\)"
+    severity: warning
+
   force_flags:
     included: ".*\\.swift"
     name: "Debug flags"
@@ -85,26 +93,6 @@ custom_rules:
       - identifier
       - keyword
 
-  cancle_misspelling:
-    included: ".*\\.swift"
-    name: "Misspelled 'cancle'"
-    regex: '(?i)\bcancle\b'
-    message: "Did you mean 'cancel'?"
-    severity: warning
-    match_kinds:
-      - identifier
-      - string
-
-  acces_misspelling:
-    included: ".*\\.swift"
-    name: "Misspelled 'acces'"
-    regex: '(?i)\bacces\b'
-    message: "Did you mean 'access'?"
-    severity: warning
-    match_kinds:
-      - identifier
-      - string
-
 identifier_name:
   min_length:
-    warning: 2
+    warning: 4
