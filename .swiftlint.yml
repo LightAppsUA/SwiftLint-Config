@@ -95,4 +95,4 @@ custom_rules:
 
 identifier_name:
   min_length:
-    warning: 4
+    warning: 2
