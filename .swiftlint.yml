@@ -84,6 +84,13 @@ custom_rules:
     regex: "Bundle\\.main\\.(url|path)\\(forResource:\\s*\\\".+\\\",\\s*(withExtension|ofType):\\s*\\\".+\\\"\\)"
     severity: warning
 
+  bundle_resource_rule_swiftui:
+    included: ".*\\.swift"
+    name: "Avoid Hardcoded Bundle Access"
+    message: "Avoid hardcoding filenames for resource access."
+    regex: "DotLottieFile\\.named\\(\\s*\\\".+\\\"\\s*\\)"
+    severity: warning
+
   force_flags:
     included: ".*\\.swift"
     name: "Debug flags"
