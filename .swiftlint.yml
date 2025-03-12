@@ -74,7 +74,13 @@ custom_rules:
   nsentitydescription_rule:
     name: "NSEntityDescription Usage Rule"
     message: "Avoid hardcoding entity names in NSEntityDescription."
-    regex: 'NSEntityDescription\.entity\(forEntityName:\s*".*?",'
+    regex: 'NSEntityDescription\.entity\(\s*forEntityName:\s*".*?",'
+    severity: warning
+
+  nssortdescriptor_rule:
+    name: "NSEntityDescription Usage Rule"
+    message: "Avoid hardcoding entity attribytes in NSSortDescriptor."
+    regex: 'NSSortDescriptor\(\s*key:\s*".*?",'
     severity: warning
 
   bundle_resource_rule:
