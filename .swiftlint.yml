@@ -15,97 +15,77 @@ disabled_rules:
 
 custom_rules:
   lottie_animation_initialization:
-    included: ".*\\.swift"
-    name: "Lottie animation initialization"
+    name: "[LA] Lottie animation initialization"
     regex: '(LottieAnimationView\(name:|LottieAnimation\.named\()\s*".*?"\s*\)'
     message: "Use R.file.filename.name or typealias of this instead."
     severity: error
-    match_kinds:
-      - identifier
-      - string
 
   image_name_initialization:
-    included: ".*\\.swift"
-    name: "Image initialization"
+    name: "[LA] Image initialization"
     regex: '(UIImage\(named:\s*".*?"\s*\)|Image\(\s*".*?"\s*\))'
     message: "Use R.image.name() or typealias of this instead."
     severity: error
-    match_kinds:
-      - identifier
-      - string
 
   disallow_string_registering:
-    included: ".*\\.swift"
-    name: "Avoid String Literals for Registering Cells/Views"
+    name: "[LA] Avoid String Literals for Registering Cells/Views"
     regex: 'register\s*\(.*?(forCellReuseIdentifier|forCellWithReuseIdentifier|forHeaderFooterViewReuseIdentifier|withReuseIdentifier)\:\s*\".*?\"'
     message: "Avoid using string literals when registering cells or views in UITableView/UICollectionView. Use constants or identifiers instead."
     severity: error
 
   disallow_string_dequeueing:
-    included: ".*\\.swift"
-    name: "Avoid String Literals for Dequeueing Cells/Views"
+    name: "[LA] Avoid String Literals for Dequeueing Cells/Views"
     regex: '(dequeueReusableCell|dequeueReusableHeaderFooterView)\s*\(\s*(withIdentifier|withReuseIdentifier):\s*\".*?\"'
     message: "Avoid using string literals when dequeueing cells or views in UITableView/UICollectionView. Use constants or identifiers instead."
     severity: error
 
   disallow_string_supplementary_dequeueing:
-    included: ".*\\.swift"
-    name: "Avoid String Literals for Dequeueing Supplementary Views"
+    name: "[LA] Avoid String Literals for Dequeueing Supplementary Views"
     regex: 'dequeueReusableSupplementaryView\(ofKind: .*?,\s*withReuseIdentifier:\s*\".*?\"'
     message: "Avoid using string literals when dequeueing supplementary views in UICollectionView. Use constants or identifiers instead."
     severity: error
 
   sf_safe_symbol:
-    included: ".*\\.swift"
-    name: "Safe SFSymbol"
+    name: "[LA] Safe SFSymbol"
     message: "Use `SFSafeSymbols` via `systemSymbol` parameters for type safety."
     regex: '(Image\(systemName:)|(NSImage\(symbolName:)|(Label[^,]+?,\s*systemImage:)|(UIApplicationShortcutIcon\(systemImageName:)'
     severity: error
-    match_kinds:
-      - identifier
-      - string
 
   nsfetchrequest_rule:
-    name: "NSFetchRequest Usage Rule"
+    name: "[LA] NSFetchRequest Usage Rule"
     message: "Avoid hardcoding entity names in NSFetchRequest."
-    regex: 'NSFetchRequest<.*?>\(entityName:\s*".*?"\)'
+    regex: 'NSFetchRequest<.*?>\(\s*entityName:\s*".*?"\)'
     severity: warning
 
   nsentitydescription_rule:
-    name: "NSEntityDescription Usage Rule"
+    name: "[LA] NSEntityDescription Usage Rule"
     message: "Avoid hardcoding entity names in NSEntityDescription."
     regex: 'NSEntityDescription\.entity\(\s*forEntityName:\s*".*?",'
     severity: warning
 
   nssortdescriptor_rule:
-    name: "NSEntityDescription Usage Rule"
+    name: "[LA] NSEntityDescription Usage Rule"
     message: "Avoid hardcoding entity attribytes in NSSortDescriptor."
     regex: 'NSSortDescriptor\(\s*key:\s*".*?",'
     severity: warning
 
   bundle_resource_rule:
-    included: ".*\\.swift"
-    name: "Avoid Hardcoded Bundle Access"
+    name: "[LA] Avoid Hardcoded Bundle Access"
     message: "Avoid hardcoding filenames for resource access."
     regex: "Bundle\\.main\\.(url|path)\\(forResource:\\s*\\\".+\\\",\\s*(withExtension|ofType):\\s*\\\".+\\\"\\)"
     severity: warning
 
   bundle_resource_rule_swiftui:
     included: ".*\\.swift"
-    name: "Avoid Hardcoded Bundle Access"
+    name: "[LA] Avoid Hardcoded Bundle Access"
     message: "Avoid hardcoding filenames for resource access."
     regex: "DotLottieFile\\.named\\(\\s*\\\".+\\\"\\s*\\)"
     severity: warning
 
   force_flags:
-    included: ".*\\.swift"
-    name: "Debug flags"
+    name: "[LA] Debug flags"
     regex: 'let\s+force(?:Premium|OfflinePaywall|OfflineSlides)\s*=\s*true'
     message: "Force flags must be disabled after testing."
     severity: warning
-    match_kinds:
-      - identifier
-      - keyword
 
 identifier_name:
   min_length:
