@@ -87,6 +87,12 @@ custom_rules:
     message: "Force flags must be disabled after testing."
     severity: warning
 
+  test_api:
+    name: "[LA] Test API used"
+    regex: '\".*?(geofinder|homeworkai)test\.info.*?\"'
+    message: "Test API must be replaced with real one after testing."
+    severity: warning
+
 identifier_name:
   min_length:
     warning: 2
