@@ -64,8 +64,14 @@ custom_rules:
 
   nssortdescriptor_rule:
     name: "[LA] NSEntityDescription Usage Rule"
-    message: "Avoid hardcoding entity attribytes in NSSortDescriptor."
+    message: "Avoid hardcoding entity attributes in NSSortDescriptor."
     regex: 'NSSortDescriptor\(\s*key:\s*".*?",'
+    severity: warning
+
+  nspredicate_rule:
+    name: "[LA] NSPredicate Usage Rule"
+    message: "Avoid hardcoding entity attributes in NSPredicate."
+    regex: 'NSPredicate\(format:\s*"\s*(?!(SELF|%K))'
     severity: warning
 
   bundle_resource_rule:
