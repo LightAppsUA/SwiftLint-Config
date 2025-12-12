@@ -99,6 +99,12 @@ custom_rules:
     message: "Test API must be replaced with real one after testing."
     severity: warning
 
+  revenuecat_id_assignment:
+    name: "[LA] RevenueCat ID Assignment"
+    regex: 'UserDefaults\.revenueCatID\s*=\s*(?!AppsFlyerLib\.shared\(\)\.getAppsFlyerUID\(\)).+'
+    message: "UserDefaults.revenueCatID must be assigned to AppsFlyerLib.shared().getAppsFlyerUID()."
+    severity: warning
+
 identifier_name:
   min_length:
     warning: 2
