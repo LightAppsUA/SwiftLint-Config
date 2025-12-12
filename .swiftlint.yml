@@ -101,7 +101,7 @@ custom_rules:
 
   revenuecat_id_assignment:
     name: "[LA] RevenueCat ID Assignment"
-    regex: 'UserDefaults\.revenueCatID\s*=\s*(?!AppsFlyerLib\.shared\(\)\.getAppsFlyerUID\(\)).+'
+    regex: 'UserDefaults\.revenueCatID\s*=\s*(?:(?!AppsFlyerLib\.shared\(\)\.getAppsFlyerUID\(\)).)+$'
     message: "UserDefaults.revenueCatID must be assigned to AppsFlyerLib.shared().getAppsFlyerUID()."
     severity: warning
 
