@@ -105,6 +105,12 @@ custom_rules:
     message: "UserDefaults.revenueCatID must be assigned to AppsFlyerLib.shared().getAppsFlyerUID()."
     severity: warning
 
+  revenuecat_uid_unused:
+    name: "[LA] AppsFlyer UID unused"
+    regex: '^\s*AppsFlyerLib\.shared\(\)\.getAppsFlyerUID\(\)\s*$'
+    message: "AppsFlyer UID is called but not assigned to UserDefaults.revenueCatID."
+    severity: warning
+
 identifier_name:
   min_length:
     warning: 2
