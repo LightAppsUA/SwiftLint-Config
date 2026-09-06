@@ -74,6 +74,12 @@ custom_rules:
     regex: 'NSPredicate\(\s*format:\s*"\s*(?!(SELF|%K))'
     severity: warning
 
+  core_data_container_literal_name:
+    name: "[LA] Core Data container model name must be a string literal"
+    message: "NSPersistentContainer(name:) must take a string literal. swiftshield renames the .xcdatamodeld but only rewrites the literal form of this call, so a variable keeps the old name and the model is not found at launch."
+    regex: '(?:NSPersistentContainer|NSPersistentCloudKitContainer)\(\s*name:\s*[^\s"]'
+    severity: error
+
   bundle_resource_rule:
     name: "[LA] Avoid Hardcoded Bundle Access"
     message: "Avoid hardcoding filenames for resource access."
